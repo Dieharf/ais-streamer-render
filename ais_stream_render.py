@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/18uZmc5IH5bv6OoeIXveI3wOwxJacCe37
 """
 
-!pip -q install websockets asyncio nest_asyncio
+pip -q install websockets asyncio nest_asyncio
 
 import asyncio
 import websockets
