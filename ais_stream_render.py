@@ -32,7 +32,7 @@ async def connect_ais_stream():
         async with websockets.connect(url) as websocket:
             subscribe_message = {
                 "APIKey": API_KEY,
-                "BoundingBoxes": [[[1.3, 104], [1.22, 103.9]]],
+                "BoundingBoxes": [[[1.1, 103.55], [1.3, 104.2]]],
                 "Filtertime_utc": ["2025-04-04 07:30:00 +0000 UTC"]
             }
             await websocket.send(json.dumps(subscribe_message))
@@ -47,11 +47,11 @@ async def connect_ais_stream():
                     data_to_write = {
                         'timestamp': message["MetaData"].get("time_utc", ""),
                         'mmsi': message["MetaData"].get("MMSI", ""),
-                        'ShipName': report.get("ShipName",""),
+                        #'ShipName': report.get("ShipName",""),
                         'latitude': report.get("Latitude", ""),
-                        'longitude': report.get("Longitude", ""),
-                        'speed': report.get("Sog", ""),
-                        'course': report.get("Cog", "")
+                        'longitude': report.get("Longitude", "")
+                        #'speed': report.get("Sog", ""),
+                        #'course': report.get("Cog", "")
 
                     }
 
